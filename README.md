@@ -31,16 +31,12 @@ name_your_app:
     max: 255
     transition: 1 
 
-  arrows: # 
-    attribute: color_temp # Attribute to change
-    step: 15 # Step value (optional)
-    min: 150 # Min value (optional)
-    max: 450 # Max value (optional)
-    transition: 1 # Transition time for dimmer single click (optional)
-hacs:
-  module: hacs
-  class: Hacs
-  hacs_sensor: sensor.hacs
+  arrows: 
+    attribute: color_temp
+    step: 15
+    min: 150
+    max: 450
+    transition: 1
 ```
 
 key | optional | type | default | description
