@@ -23,14 +23,21 @@ class Events:
 
 class Dimmer:
   """ Control one of the posible direction for dimmer """
-  def __init__(self, get: Callable[[], int], set: Callable[[int, int], None], step: int, transition: int, min: int = 0, max: int = 255):
+
+  def __init__(
+      self, 
+      get: Callable[[], int], 
+      set: Callable[[int, int], None], 
+      step: int, 
+      transition: int, 
+      min: int = 0, 
+      max: int = 255):
     self.__min = min
     self.__max = max
     self.__step = step
     self.__transition = transition
     self.__get = get
     self.__set = set
-    self.__timer = None
 
 
   def up(self, hold = False):
@@ -54,7 +61,7 @@ class Dimmer:
     if next == current:
       self.stop()
     else:
-      self.__set(next, self.__transition if hold is False else 0.2)
+      self.__set(next, self.__transition if hold is False else 1)
       if hold is True:
         def tick(app, **kwargs):
           if self.__in_progress is False:
